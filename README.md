@@ -1,4 +1,4 @@
-# Reinforcement Learning with Conv AutoEncoder for End-to-End Learning from Images
+# Reinforcement Learning with Convolutional AutoEncoder for End-to-End Learning from Images
 
 Algorithm: Soft Actor-Critic
 
