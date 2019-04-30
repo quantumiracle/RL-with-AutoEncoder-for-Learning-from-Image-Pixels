@@ -1,10 +1,21 @@
-# RL with Screenshot as Inputs
+# Reinforcement Learning with Conv AutoEncoder for End-to-End Learning from Images
 
-DDPG with direct screenshot as inputs. 
+Algorithm: Soft Actor-Critic
 
-Raw code: the observation is screenshot of size (200, 200, 3) as a downsampled RGB image, and both the actor and critic have a cnn+fc nework. It cannot work!
+Environment: Reacher
+
+Settings: the observation is encoded screenshot of the env. The screenshot is of size (200, 200, 3) as a downsampled RGB image, and through a convolutional autoencoder it becomes a low-dimensional vetor.
+
+<p align="center">
+<img src="https://github.com/quantumiracle/End-To-End-RL-with-AutoEncoder/blob/master/img/data_2.png" width="50%">
+</p>
 
 To Run:
 
-`python -m run --alg=ddpg --num_timesteps=1e4 --train/test`
+1. `python ./vae/env_2.py` for generating image samples;
 
+2. `python ./vae/ae.py` for pre-training the AE;
+
+3. `python sac.py` fortraning the SAC.
+
+Remember to make the model path and name correct!
