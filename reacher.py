@@ -67,11 +67,26 @@ class Reacher:
 
         if self.render == True:
             self.screen.fill((0, 0, 0))
+            line_width=20  # origin 5
+            circle_size=20 # origin 10
             for i in range (self.num_joints+1):
                 if i < self.num_joints:
-                    pygame.draw.line(self.screen, (255, 255, 255), [int_coordinates[i][0], int_coordinates[i][1]], [int_coordinates[i+1][0], int_coordinates[i+1][1]], 5) # draw link
-                pygame.draw.circle(self.screen, (0, 255, 0), [int_coordinates[i][0], int_coordinates[i][1]], 10)  # draw joint
-            pygame.draw.circle(self.screen, (255, 255, 0), np.array(self.target_pos).astype(int), 10) # draw target
+                    pygame.draw.line(self.screen, (255, 255, 255), [int_coordinates[i][0], int_coordinates[i][1]], [int_coordinates[i+1][0], int_coordinates[i+1][1]], line_width) # draw link
+                pygame.draw.circle(self.screen, (0, 255, 0), [int_coordinates[i][0], int_coordinates[i][1]], circle_size)  # draw joint
+            pygame.draw.circle(self.screen, (255, 255, 0), np.array(self.target_pos).astype(int), 2*circle_size) # draw target
+            # extra objects for disturbing:
+            # o1=[702, 230]
+            # o2=[794, 609]
+            # o3=[470, 234]
+            # o4=[270, 234]
+            # o5=[387, 534]
+            # pygame.draw.circle(self.screen, (155, 23, 208), o1, circle_size*3)
+            # pygame.draw.circle(self.screen, (255, 0, 182), o2, circle_size*2)
+            # pygame.draw.circle(self.screen, (155, 134, 0), o3, circle_size)
+            # pygame.draw.circle(self.screen, (25, 34, 190), o4, circle_size*2)
+            # pygame.draw.circle(self.screen, (215, 34, 129), o5, circle_size*3)
+
+            
             # Flip the display buffers to show the current rendering
             pygame.display.flip()
             # time.sleep(0.5)
